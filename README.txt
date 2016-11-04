@@ -1,4 +1,5 @@
 input.txt muss mit den Daten für die zu erstellende Zeitreihe gefüttert werden.
+Die maximal zulässige Anzahl an Quellen beträgt 100.
 Dabei sieht die Datei folgenden Format vor:
 
 1. Zeile: 		Quellenanzahl;

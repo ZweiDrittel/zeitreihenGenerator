@@ -7,13 +7,16 @@ extern int errorOccured;
 
 void printHeader()
 {
-	printf("###############################################\n"
-	       "#######       Header steht hier so      #######\n"
-	       "###############################################\n\n");
+    printf("###############################################\n"
+           "#######       Header steht hier so      #######\n"
+           "###############################################\n\n");
 }
 
 void errorCall(char *message)
 {
-	printf("%s...\n", message);
-	errorOccured = 1;
+	printf("###############################################\n"
+		   "#######   Programmfehler aufgetreten    #######\n"
+	       "###############################################\n\n");
+    printf("%s...\n", message);
+    errorOccured = 1;
 }

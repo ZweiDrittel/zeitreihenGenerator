@@ -2,32 +2,34 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "flowControl.h"
 
 extern int errorOccured;
+extern const int readBufferSize;
 
-void openFile(FILE *file, char *path, char *mode)
+FILE *openFile(char path[200], char mode[5])
 {
-	file = fopen(path, mode);
-	if(file == NULL)
+    FILE *file = fopen(path, mode);
+    if(file == NULL)
+    {
+        errorCall("Datei konnte nicht geoeffnet werden...");
+    }
+    else
+    {
+        printf("Datei erfolgreich geoeffnet!\n");
+    }
+    return file;
+}
+
+void readInput(FILE *file, char buffer[readBufferSize])
+{
+	memset(buffer, '\0', readBufferSize*sizeof(char));
+	for(int i = 0; i < readBufferSize; i++)
 	{
-		errorCall("Datei konnte nicht geoeffnet werden...");
-	}
-	else
-	{
-		printf("Datei erfolgreich geoeffnet!\n");
+		fscanf(file, "%c", &buffer[i]);
+		if(buffer[i] == ';')
+			break;
 	}
 }
 
-void getSourceCount(FILE *file, int *counter)
-{
-	if(1 != fscanf(file, "%d", counter))
-	{
-		errorCall("Auslesen der Quellenanzahl misslungen...");
-	}
-	else
-	{
-		printf("Quellenanzahl ausgelesen. Es werden %d Quellen"
-		       " berücksichtigt\n", *counter);
-	}
-}

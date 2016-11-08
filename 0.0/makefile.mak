@@ -8,7 +8,7 @@ CXX := gcc
 CXXFLAGS := -std=c99 -c -Wall -IS:\User\Ra\Programme\C\zeitreihenGenerator\0.0\lib\\
 LDFLAGS := -g -static
 HEADERS := $(wildcard S\:\User\Ra\Programme\C\zeitreihenGenerator\0.0\lib\*.h)
-objs := main.o fileOperations.o
+objs := main.o fileOperations.o flowControl.o
 
 all: zeitreihenGenerator_v0-0.exe
 
@@ -22,6 +22,10 @@ main.o: main.c $(HEADERS)
 
 # Ziel 3
 fileOperations.o: fileOperations.c 
+	$(CXX) $(CXXFLAGS) $<
+	
+# Ziel 4
+flowControl.o: flowControl.c 
 	$(CXX) $(CXXFLAGS) $<
 
 # Alle *.o Dateien löschen

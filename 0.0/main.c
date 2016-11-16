@@ -5,7 +5,7 @@
 #include "fileOperations.h"
 #include "flowControl.h"
 
-int errorOccured = 0;      //diverse Stellen auf Fehler überprüfen
+int errorOccured = 0;            //diverse Stellen auf Fehler überprüfen
 const int readBufferSize = 100;  //max. Laenge der Inputstrings
 
 int main(int argc, char *argv[])
